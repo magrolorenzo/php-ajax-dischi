@@ -17,7 +17,7 @@
             <div class="select-container">
                 <div>
                     <label for="select-genre">Genres</label>
-                    <select name="genres" id="select-genre" onchange="change_genre()">
+                    <select name="genres" id="select-genre">
                         <option value="All">All</option>
                     </select>
                 </div>
@@ -42,7 +42,7 @@
         </div>
         <!-- Modello per creazione card dei dischi con handlebars -->
         <script id="cd-card-template" type="text/x-handlebars-template">
-            <div class="cd-card">
+            <div class="cd-card" value={{genre}}>
                 <div class="image-container">
                     <img src="{{poster}}" alt="" class="poster">
                 </div>
@@ -62,7 +62,7 @@
         </script>
         <!-- Modello per selezione genere -->
         <script id="option-template" type="text/x-handlebars-template">
-            <option>{{genre}}</option>
+            <option value="{{genre}}">{{genre}}</option>
         </script>
 
         <script src="main.js" charset="utf-8"></script>

@@ -53,11 +53,32 @@ $(document).ready(function() {
         }
     });
 
-    // Funzione per cambio genere
-    function change_genre(){
-        var g = document.getElementById("select-genre").value;
-        console.log(g);
-    };
 
+});
+
+// Funzione per cambio genere
+$('#select-genre').on('change', function() {
+
+    // Si salva il valore selezionato
+    var g = $('#select-genre').children(":selected").attr("value");
+    console.log("Hai selezionato " + g);
+
+    if( g == "All" ){
+        // Se è selezionato All, mostra tutte le card
+        $(".cd-card").show();
+    } else {
+
+        // Altrimenti
+        // Nascondile tutte
+        $(".cd-card").hide();
+        // Cicla tutte le card e verifica il value
+        $('.cd-card').each(function () {
+            // Se il value della card è uguale al genere selezionato, fai show
+            if ( $(this).attr("value") == g) {
+                $(this).show();
+            }
+        });
+
+}
 
 });
